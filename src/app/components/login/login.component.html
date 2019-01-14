@@ -1,0 +1,29 @@
+<div class="limiter">
+  <div class="container-login100">
+    <div class="wrap-login100">
+      <div class="login100-form-title" style="background-image:  url(assets/images/logo-retina2.png); background-size: 55% auto;">
+        <!--<span class="login100-form-title-1">
+        </span>-->
+      </div>
+
+      <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" class="login100-form validate-form">
+        <div class="wrap-input100 validate-input m-b-26" data-validate="Usuario requerido">
+          <span class="label-input100">Usuario</span>
+          <input class="input100" #username="ngModel" [(ngModel)]="usuario.username" type="text" name="username" id="username">
+          <span class="focus-input100"></span>
+        </div>
+
+        <div class="wrap-input100 validate-input m-b-18" data-validate = "Contraseña requerida">
+          <span class="label-input100">Contraseña</span>
+          <input class="input100" #password="ngModel" [(ngModel)]="usuario.password" type="password" name="pass" id="pass">
+          <span class="focus-input100"></span>
+        </div>
+        <div class="container-login100-form-btn" style="position: relative;height: 1em;">
+          <button type="submit" class="login100-form-btn" style="position: absolute;top: 50%;left: 25%;">
+            Iniciar sesion
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

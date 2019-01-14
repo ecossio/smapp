@@ -1,0 +1,80 @@
+<div class="col-12 col-lg-5 col-md-5 col-sm-5 m-auto" *ngIf="persona">
+    <form #personaNewForm="ngForm" (ngSubmit)="onSubmit(personaNewForm)" class="mt-3">
+        <div class="card shadow p-3 mb-5 bg-white" style="border-radius: 20px;">
+            <div class="card-body">
+
+            	<div class="form-group">
+	            	<div class="custom-control custom-radio custom-control-inline">
+					  <input type="radio" id="customRadioInline1" [(ngModel)]="persona.tipo" value="X" name="tipoPersona" class="custom-control-input">
+					  <label class="custom-control-label col-form-label-sm" for="customRadioInline1">Contacto</label>
+					</div>
+
+					<div class="custom-control custom-radio custom-control-inline">
+					  <input type="radio" id="customRadioInline2" [(ngModel)]="persona.tipo" value="P" name="tipoPersona" class="custom-control-input">
+					  <label class="custom-control-label col-form-label-sm" for="customRadioInline2">Prospecto</label>
+					</div>
+
+					<div class="custom-control custom-radio custom-control-inline">
+					  <input type="radio" id="customRadioInline3" [(ngModel)]="persona.tipo" value="C" name="tipoPersona" class="custom-control-input">
+					  <label class="custom-control-label col-form-label-sm" for="customRadioInline3">Cliente</label>
+					</div>
+                </div>
+
+                <div class="form-group mt-3">
+                    <label for="nombre" class="col-form-label-sm">* Nombre</label>
+                    <input type="text" class="form-control form-control-sm" #nombre="ngModel" [(ngModel)]="persona.nombre" name="nombre" id="nombre" aria-describedby="nombreHelp" required/>
+                    <small *ngIf="!nombre.valid && nombre.touched" id="nombreHelp" class="form-text text-danger">El nombre es obligatorio.</small>
+                </div>
+
+				<div class="form-row">
+					<div class="col-sm-6">
+						<label for="apaterno" class="col-form-label-sm">* Apellido paterno</label>
+						<input type="text" class="form-control form-control-sm" #apaterno="ngModel" [(ngModel)]="persona.apaterno" name="apaterno" id="apaterno" aria-describedby="apaternoHelp" required>
+						<small *ngIf="!apaterno.valid && apaterno.touched" id="apaternoHelp" class="form-text text-danger">El apellido paterno es obligatorio.</small>
+					</div>
+					<div class="col-sm-6">
+						<label for="amaterno" class="col-form-label-sm">Apellido materno</label>
+						<input type="text" class="form-control form-control-sm"  #amaterno="ngModel" [(ngModel)]="persona.amaterno" name="amaterno" id="amaterno">
+					</div>
+				</div>
+
+				<div class="form-row">
+					<div class="col-sm-6">
+						<label for="telefono1" class="col-form-label-sm">Teléfono 1</label>
+						<input type="text" class="form-control form-control-sm" [(ngModel)]="persona.telefono1" name="telefono1" id="telefono1">
+					</div>
+					<div class="col-sm-6">
+						<label for="telefono2" class="col-form-label-sm">Teléfono 2</label>
+						<input type="text" class="form-control form-control-sm" [(ngModel)]="persona.telefono2" name="telefono2" id="telefono2">
+					</div>
+				</div>
+
+				<div class="form-group">
+                    <label for="calle" class="col-form-label-sm">Calle y número</label>
+                    <input type="text" class="form-control form-control-sm" [(ngModel)]="persona.calle" name="calle" id="calle" />
+                </div>
+
+                <div class="form-group">
+                    <label for="colonia" class="col-form-label-sm">Colónia</label>
+                    <input type="text" class="form-control form-control-sm" [(ngModel)]="persona.colonia" name="colonia" id="colonia" />
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="col-form-label-sm">Email</label>
+                    <input type="email" class="form-control form-control-sm" #email="ngModel" [(ngModel)]="persona.email" name="email" id="email" aria-describedby="emailHelp"/>
+                    <small *ngIf="EmailOk == false" id="emailHelp" class="form-text text-danger">Email incorrecto.</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="fhUltimoContacto" class="col-form-label-sm">Último contacto</label>
+                    <input type="text" mask="00/00/0000" placeholder="dd/mm/yyyy" class="form-control form-control-sm" [(ngModel)]="persona.fhUltimoContacto" name="fhUltimoContacto" id="fhUltimoContacto" />
+                </div>
+
+                <div class="form-group text-right mb-0 mt-4">
+                    <a [routerLink]="['/home']" class="btn btn-sm btn-secondary">Cancelar</a>
+                    <button type="submit" class="btn btn-sm btn-primary ml-2" (click)="onSubmit()" [disabled]="!personaNewForm.form.valid">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

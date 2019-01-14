@@ -1,0 +1,182 @@
+<div class="col-12 col-lg-12 col-md-12 col-sm-12 m-auto">
+	<nav class="navbar navbar-light bg-light fixed-top">
+	  <form class="col-12">
+	  	<div class="form-row align-items-center">
+	  		<div class="col-11">
+	  			<div class="has-search">
+					<span class="fa fa-search form-control-feedback"></span>
+					<input type="text" class="form-control form-control-sm" style="border-radius: 1rem;" name="searchString"  [(ngModel)]="searchString" placeholder="Buscar">
+				</div>
+	  		</div>
+	  		<div class="col-1 text-right">
+	  			<!--<button type="button" class="btn btn-light ml-auto" [routerLink]="['/new']">+</button>-->
+				<a [routerLink]="['/logout/1']" title="Salir">
+					<i class="fa fa-sign-out fa-lg" aria-hidden="true"></i>
+				</a>
+	  		</div>
+	  	</div>
+	  </form>
+	</nav>
+
+	<table class="table table-sm table-hover mt-5 col-12 col-lg-12 col-md-12 col-sm-12" *ngIf="personas">
+	  <tbody>
+	    <tr *ngFor="let persona of personas | filter : 'nbcompleto' : searchString; let i = index" style="font-size: 0.9rem;">
+	      <td class="w-75">{{persona.nbcompleto}}</td>
+	      <td class="w-25 text-right">
+	      	<a [routerLink]="['/edit',persona.id]" title="Editar" data-toggle="tooltip"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+	      	<button type="button" class="ml-2" title="Eliminar" data-toggle="tooltip" (click)="eliminar(persona)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+	      </td>
+	    </tr>
+	  </tbody>
+	</table>
+</div>
+
+<a id="floatButton" [routerLink]="['/new']" class="float-button">
+	<i class="fa fa-plus iconfloatbutton"></i>
+</a>
+
+<!--
+<div class="limiter">
+	<div class="container-table100">
+		<div class="wrap-table100">
+				<div class="table">
+
+					<div class="row header">
+						<div class="cell">
+							Full Name
+						</div>
+						<div class="cell">
+							Age
+						</div>
+						<div class="cell">
+							Job Title
+						</div>
+						<div class="cell">
+							Location
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="cell" data-title="Full Name">
+							Vincent Williamson
+						</div>
+						<div class="cell" data-title="Age">
+							31
+						</div>
+						<div class="cell" data-title="Job Title">
+							iOS Developer
+						</div>
+						<div class="cell" data-title="Location">
+							Washington
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="cell" data-title="Full Name">
+							Joseph Smith
+						</div>
+						<div class="cell" data-title="Age">
+							27
+						</div>
+						<div class="cell" data-title="Job Title">
+							Project Manager
+						</div>
+						<div class="cell" data-title="Location">
+							Somerville, MA
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="cell" data-title="Full Name">
+							Justin Black
+						</div>
+						<div class="cell" data-title="Age">
+							26
+						</div>
+						<div class="cell" data-title="Job Title">
+							Front-End Developer
+						</div>
+						<div class="cell" data-title="Location">
+							Los Angeles
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="cell" data-title="Full Name">
+							Sean Guzman
+						</div>
+						<div class="cell" data-title="Age">
+							25
+						</div>
+						<div class="cell" data-title="Job Title">
+							Web Designer
+						</div>
+						<div class="cell" data-title="Location">
+							San Francisco
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="cell" data-title="Full Name">
+							Keith Carter
+						</div>
+						<div class="cell" data-title="Age">
+							20
+						</div>
+						<div class="cell" data-title="Job Title">
+							Graphic Designer
+						</div>
+						<div class="cell" data-title="Location">
+							New York, NY
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="cell" data-title="Full Name">
+							Austin Medina
+						</div>
+						<div class="cell" data-title="Age">
+							32
+						</div>
+						<div class="cell" data-title="Job Title">
+							Photographer
+						</div>
+						<div class="cell" data-title="Location">
+							New York
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="cell" data-title="Full Name">
+							Vincent Williamson
+						</div>
+						<div class="cell" data-title="Age">
+							31
+						</div>
+						<div class="cell" data-title="Job Title">
+							iOS Developer
+						</div>
+						<div class="cell" data-title="Location">
+							Washington
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="cell" data-title="Full Name">
+							Joseph Smith
+						</div>
+						<div class="cell" data-title="Age">
+							27
+						</div>
+						<div class="cell" data-title="Job Title">
+							Project Manager
+						</div>
+						<div class="cell" data-title="Location">
+							Somerville, MA
+						</div>
+					</div>
+
+				</div>
+		</div>
+	</div>
+</div>-->
